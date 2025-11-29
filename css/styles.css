@@ -185,9 +185,15 @@ body {
 /* Hero-local background frame (applies only behind heading area) */
 .hero-bg {
     position: relative;
-    padding: 1.25rem 1rem;
+    padding: 1rem 0.75rem;
     border-radius: 1rem;
     display: inline-block;
+}
+
+@media (min-width: 768px) {
+    .hero-bg {
+        padding: 1.25rem 1rem;
+    }
 }
 .hero-bg::before {
     content: "";
@@ -267,7 +273,7 @@ body.dark-theme .hero-bg {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4rem 2rem;
+    padding: 2rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
     background-color: var(--card-bg);
@@ -275,7 +281,14 @@ body.dark-theme .hero-bg {
     margin-top: 1rem;
     box-shadow: var(--shadow);
     text-align: center;
-    min-height: 320px;
+    min-height: 280px;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        padding: 4rem 2rem;
+        min-height: 320px;
+    }
 }
 
 .hero-content {
@@ -350,6 +363,20 @@ body.dark-theme .hero-subtitle {
         margin-top: 0;
         align-self: center;
         margin-left: auto; /* push image to the right */
+    }
+}
+
+/* Mobile: smaller decorative goldfish */
+@media (max-width: 767px) {
+    .hero-bg img[src*="goldfish"] {
+        width: 50px !important;
+        top: -25px !important;
+        right: -25px !important;
+    }
+    .hero-bg img[src*="goldfish"]:last-of-type {
+        width: 50px !important;
+        bottom: -25px !important;
+        left: -25px !important;
     }
 }
 
@@ -464,7 +491,13 @@ body.dark-theme .checkered-divider {
 .scrapbook-about {
     max-width: 1200px;
     margin: 1rem auto;
-    padding: 2rem;
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .scrapbook-about {
+        padding: 2rem;
+    }
 }
 .scrapbook-grid {
     display: grid;
@@ -540,19 +573,43 @@ body.dark-theme .label {
     color: var(--text);
 }
 
+/* Mobile: smaller paperclips */
+@media (max-width: 767px) {
+    .about-card img[src*="paperclip"],
+    .panel img[src*="paperclip"] {
+        width: 40px !important;
+        top: -15px !important;
+        left: -15px !important;
+        right: auto !important;
+    }
+}
+
 @media (max-width: 767px) {
     .scrapbook-grid { grid-template-columns: 1fr; }
     .edu-exp { grid-template-columns: 1fr; }
-    .id-badge { flex-direction: row; gap: 1rem; padding:0.75rem; align-items:center; }
-    .id-badge .photo { width:84px; height:84px; border-radius:0.75rem; }
-    .badge-name { font-size:1rem; }
+    .id-badge { 
+        flex-direction: column; 
+        gap: 0.75rem; 
+        padding: 1rem; 
+        align-items: center;
+        text-align: center;
+    }
+    .id-badge .photo { width: 100px; height: 100px; border-radius: 0.75rem; }
+    .badge-name { font-size: 1rem; }
+    .contact-links { justify-content: center; }
 }
 
 /* Pursuits Section */
 .pursuits-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 2rem;
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+    .pursuits-section {
+        padding: 2rem 2rem;
+    }
 }
 
 .pursuits-section h2 {
@@ -658,7 +715,7 @@ body.dark-theme .label {
 
     .about,
     .pursuits-section {
-        padding: 4rem 3rem;
+        padding: 4rem 2rem;
     }
 }
 
@@ -674,7 +731,7 @@ body.dark-theme .label {
 
     .about,
     .pursuits-section {
-        padding: 5rem 4rem;
+        padding: 5rem 3rem;
     }
 }
 
