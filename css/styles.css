@@ -88,15 +88,22 @@ body.dark-theme .project-img {
 @media (max-width: 700px) {
     .custom-project-card {
         flex-direction: column;
-        gap: 1.2rem;
-        padding: 1.2rem 0.5rem;
+        gap: 1rem;
+        padding: 1.5rem 1rem;
+        margin-bottom: 1.5rem;
     }
     .project-img-col {
         flex: 0 0 auto;
     }
     .project-img {
-        width: 120px;
-        height: 90px;
+        width: 140px;
+        height: 105px;
+    }
+    .custom-project-card .project-title {
+        font-size: 1.2rem;
+    }
+    .custom-project-card .project-description {
+        font-size: 0.95rem;
     }
 }
 .about-image-card {
@@ -125,7 +132,7 @@ body.dark-theme .project-img {
 
 :root {
     /* Light Theme (default) */
-    --mint-bg: #E8F5F0;
+    --mint-bg: #E8F5F0; /* mint green */
     --cream: #FFFBF7;
     --lavender: #D4BEF0; /* pastel purple */
     --peach: #FFE5A0; /* butter yellow */
@@ -276,12 +283,21 @@ body.dark-theme .hero-bg {
     padding: 2rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: var(--card-bg);
+    background-color: #F5D9E8; /* pastel pink */
     border-radius: 2rem;
     margin-top: 1rem;
     box-shadow: var(--shadow);
     text-align: center;
     min-height: 280px;
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 1.5rem 0.75rem;
+        margin-top: 0.5rem;
+        border-radius: 1.5rem;
+        min-height: 240px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -291,23 +307,28 @@ body.dark-theme .hero-bg {
     }
 }
 
+body.dark-theme .hero {
+    background-color: var(--card-bg); /* blue theme for dark mode */
+}
+
 .hero-content {
     flex: 1;
     text-align: center; /* center the texts in the hero */
 }
 
 .hero-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1.75rem, 5vw, 3.5rem);
     font-weight: 700;
     margin-bottom: 1rem;
     color: var(--dark-text);
+    line-height: 1.2;
 }
 
 .hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: clamp(0.95rem, 2vw, 1.25rem);
     color: var(--light-text);
     font-weight: 400;
-
+    line-height: 1.4;
 }
 
 /* Dark mode hero text */
@@ -597,6 +618,25 @@ body.dark-theme .label {
     .id-badge .photo { width: 100px; height: 100px; border-radius: 0.75rem; }
     .badge-name { font-size: 1rem; }
     .contact-links { justify-content: center; }
+    .about-card {
+        padding: 1rem;
+    }
+    .panel {
+        padding: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .scrapbook-about {
+        padding: 0.75rem;
+    }
+    .about-card h2 {
+        font-size: 1.35rem;
+    }
+    .about-card p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
 }
 
 /* Pursuits Section */
@@ -617,6 +657,34 @@ body.dark-theme .label {
     margin-bottom: 2rem;
     color: var(--dark-text);
     text-align: center;
+    background: #F5D9E8; /* pastel pink */
+    padding: 1.5rem 2rem;
+    border-radius: 1.5rem;
+    display: inline-block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: var(--shadow);
+}
+
+@media (max-width: 480px) {
+    .pursuits-section h2 {
+        padding: 1rem 1.25rem;
+        font-size: 1.35rem;
+        border-radius: 1rem;
+    }
+}
+
+.pursuits-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body.dark-theme .pursuits-section h2 {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
 }
 
 /* Projects Grid */
@@ -634,6 +702,13 @@ body.dark-theme .label {
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
     border-left: 5px solid;
+}
+
+@media (max-width: 480px) {
+    .project-card {
+        padding: 1.25rem 1rem;
+        border-radius: 0.75rem;
+    }
 }
 
 .project-card:nth-child(1) {
@@ -748,9 +823,13 @@ body.dark-theme .label {
 
 /* Admin Form Theme Support */
 #admin-section {
-    background: var(--accent-2) !important;
+    background: #F5D9E8 !important; /* pastel pink */
     color: var(--dark-text) !important;
     box-shadow: var(--shadow) !important;
+}
+
+body.dark-theme #admin-section {
+    background: var(--accent-2) !important;
 }
 
 #admin-section label,
@@ -801,6 +880,20 @@ body.dark-theme .label {
     box-shadow: var(--shadow);
     z-index: 999;
     transition: all 0.3s ease;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .theme-toggle-btn {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
 }
 
 body.dark-theme .theme-toggle-btn {
