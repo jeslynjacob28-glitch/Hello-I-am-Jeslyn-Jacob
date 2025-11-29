@@ -1,12 +1,62 @@
 // Load projects.json and render separate "Technical Pursuits" and "Creative Pursuits" sections by creating cards dynamically.
 
 document.addEventListener('DOMContentLoaded', () => {
+    initializeTheme();
     loadProjects();
 });
 
+// Theme Toggle Logic
+function initializeTheme() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    
+    // Check localStorage for saved preference
+    const savedTheme = localStorage.getItem('theme');
+    
+    // If no saved preference, check system preference
+    if (savedTheme) {
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-theme');
+            updateThemeToggleText(true);
+        }
+    } else {
+        // Check system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            body.classList.add('dark-theme');
+            updateThemeToggleText(true);
+        }
+    }
+    
+    // Add click listener to toggle button
+    themeToggle.addEventListener('click', toggleTheme);
+}
+
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('dark-theme');
+    
+    // Save preference to localStorage
+    const isDarkMode = body.classList.contains('dark-theme');
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    
+    // Update button text
+    updateThemeToggleText(isDarkMode);
+}
+
+function updateThemeToggleText(isDarkMode) {
+    const toggleText = document.getElementById('theme-toggle-text');
+    if (isDarkMode) {
+        toggleText.textContent = '☀️ Light';
+    } else {
+        toggleText.textContent = '🌙 Dark';
+    }
+}
+
 async function loadProjects() {
     try {
-        const response = await fetch('../data/projects.json');
+        // Load projects.json relative to the site root (works when opening root `index.html`
+        // or when serving the site via a static server).
+        const response = await fetch('data/projects.json');
         if (!response.ok) {
             throw new Error(`Failed to load projects: ${response.statusText}`);
         }

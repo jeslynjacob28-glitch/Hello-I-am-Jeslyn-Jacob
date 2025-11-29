@@ -53,12 +53,12 @@
 .custom-project-card .project-title {
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--dark-text);
+    color: var(--text);
     margin-bottom: 0.25rem;
 }
 .custom-project-card .project-role {
     font-size: 1rem;
-    color: var(--light-text);
+    color: var(--muted-text);
     font-weight: 600;
 }
 .custom-project-card .project-stack {
@@ -66,8 +66,8 @@
     font-size: 0.98rem;
 }
 .custom-project-card .tech-tag {
-    background: var(--mint-bg);
-    color: var(--dark-text);
+    background: var(--accent-2);
+    color: var(--text);
     border-radius: 999px;
     padding: 0.2rem 0.7rem;
     margin-right: 0.4rem;
@@ -76,7 +76,7 @@
     display: inline-block;
 }
 .custom-project-card .project-description {
-    color: var(--light-text);
+    color: var(--muted-text);
     font-size: 1rem;
     line-height: 1.5;
 }
@@ -96,7 +96,7 @@
 }
 .about-image-card {
     margin-top: 1.2rem;
-    background: var(--cream);
+    background: var(--card-bg);
     border-radius: 1rem;
     box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     padding: 0.75rem;
@@ -119,6 +119,7 @@
 /* Pastel retro theme: mint background, rounded hero, checkered dividers, soft card shadows, responsive layout for mobile. Use readable fonts and good contrast. */
 
 :root {
+    /* Light Theme (default) */
     --mint-bg: #E8F5F0;
     --cream: #FFFBF7;
     --lavender: #E8D5F2;
@@ -128,6 +129,39 @@
     --light-text: #5A6E6E;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark Theme */
+body.dark-theme {
+    /* Purple-themed dark palette */
+    --mint-bg: #120826; /* legacy token mapped to purple background */
+    --cream: #241330; /* legacy token mapped to card background */
+    --lavender: #BFA6E6; /* light lavender accent */
+    --peach: #FFD7C9; /* keep peach accent for harmony */
+    --pale-pink: #E7D7EB;
+    --dark-text: #F6F3FA; /* off-white / very light lavender */
+    --light-text: #E6DFEA; /* muted light text */
+    --shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    --shadow-hover: 0 10px 28px rgba(0, 0, 0, 0.6);
+    /* Shared semantic variables for dark theme */
+    --bg: #120826; /* deep muted purple */
+    --card-bg: #241330; /* slightly lighter panel color */
+    --text: #F6F3FA;
+    --muted-text: #E6DFEA;
+    --accent: #BFA6E6; /* soft lavender */
+    --accent-2: #FFD7C9; /* peach accent */
+    --accent-3: #E7D7EB;
+    /* Hero-specific dark mode variables (purple-tinted overlay) */
+    --hero-bg-opacity: 0.88;
+    --hero-overlay: rgba(36, 19, 46, 0.56); /* purple-tinted subtle overlay */
+    --hero-text: #FFF8FF; /* crisp near-white with cool tint */
+    --hero-text-light: #F2EAF8; /* slightly muted subtitle */
+}
+
+/* Smooth theme transition */
+body,
+body * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 * {
@@ -155,11 +189,13 @@ body {
     position: absolute;
     inset: -8px;
     border-radius: 1rem;
-    background-image: url('../images/bg.jpg');
+    /* Try png first then jpg as fallback so either file name will work */
+    background-image: url('../images/bg.png'), url('../images/bg.jpg');
     background-size: cover;
     background-position: center;
     z-index: 0;
     box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    opacity: 1; /* default visible in light mode */
 }
 .hero-bg::after {
     content: "";
@@ -170,8 +206,56 @@ body {
     z-index: 1;
     pointer-events: none;
 }
+
+/* Dark mode hero adjustments */
+body.dark-theme .hero-bg::before {
+    /* Make the background image more visible and slightly adjusted for dark mode */
+    opacity: var(--hero-bg-opacity);
+    filter: brightness(0.9) contrast(1.06) saturate(0.95) sepia(0.02);
+    transition: opacity 320ms ease, filter 320ms ease;
+}
+
+body.dark-theme .hero-bg::after {
+    background: var(--hero-overlay);
+}
+
+/* Add transition on overlay so change is smooth */
+.hero-bg::after, .hero-bg::before {
+    transition: background 320ms ease, opacity 320ms ease, filter 320ms ease;
+}
+
+/* Dark mode card and about-area adjustments for stronger contrast */
+body.dark-theme .about-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: var(--shadow);
+}
+
+body.dark-theme .panel {
+    background: var(--cream);
+    border: 1px solid rgba(255,255,255,0.03);
+    box-shadow: var(--shadow);
+}
+
+body.dark-theme .id-badge {
+    background: linear-gradient(180deg, var(--cream), rgba(255,255,255,0.02));
+}
+
+body.dark-theme .contact-link,
+body.dark-theme .badge-name,
+body.dark-theme .badge-role,
+body.dark-theme .about-card h2,
+body.dark-theme .edu-school,
+body.dark-theme .exp-desc,
+body.dark-theme .edu-desc {
+    color: var(--dark-text);
+}
 .hero-bg > * { position: relative; z-index: 2; }
 .hero-bg { border: 6px solid rgba(232,213,242,0.85); }
+
+body.dark-theme .hero-bg {
+    border: 6px solid rgba(52, 39, 63, 0.7);
+}
 
 /* Hero Section */
 .hero {
@@ -205,6 +289,16 @@ body {
     font-size: clamp(1rem, 2vw, 1.25rem);
     color: var(--light-text);
     font-weight: 400;
+
+}
+
+/* Dark mode hero text */
+body.dark-theme .hero-title {
+    color: var(--hero-text);
+}
+
+body.dark-theme .hero-subtitle {
+    color: var(--hero-text-light);
 }
 
 .hero-image {
@@ -259,13 +353,13 @@ body {
     width: 100%;
     height: 2rem;
     background-image:
-        linear-gradient(45deg, var(--lavender) 25%, transparent 25%),
-        linear-gradient(-45deg, var(--lavender) 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, var(--lavender) 75%),
-        linear-gradient(-45deg, transparent 75%, var(--lavender) 75%);
-    background-size: 2rem 2rem;
-    background-position: 0 0, 0 1rem, 1rem -1rem, -1rem 0;
-    background-color: var(--peach);
+        linear-gradient(45deg, var(--accent) 25%, transparent 25%),
+            linear-gradient(-45deg, var(--accent) 25%, transparent 25%),
+            linear-gradient(45deg, transparent 75%, var(--accent) 75%),
+            linear-gradient(-45deg, transparent 75%, var(--accent) 75%);
+        background-size: 2rem 2rem;
+        background-position: 0 0, 0 1rem, 1rem -1rem, -1rem 0;
+        background-color: var(--accent-2);
     margin: 2rem 0;
 }
 
@@ -313,7 +407,7 @@ body {
 .edu-block {
     margin-bottom: 2.5rem;
     padding-bottom: 2rem;
-    border-bottom: 1px dashed var(--lavender);
+    border-bottom: 1px dashed var(--accent);
 }
 .edu-block:last-child {
     border-bottom: none;
@@ -405,21 +499,10 @@ body {
 .badge-contact { text-align: center; }
 .contact-link { color: var(--dark-text); text-decoration: none; font-weight:600; }
 .contact-small { color: var(--light-text); font-size: 0.9rem; margin-top: 0.25rem; }
-/* Contact links container: centered and spaced */
-.contact-links { display:flex; gap:0.75rem; margin-top:0.5rem; justify-content:center; align-items:center; }
-/* Tag/button base style */
-.tag { display:inline-flex; align-items:center; gap:0.5rem; padding:0.45rem 0.9rem; border-radius: 999px; font-weight:700; color:var(--dark-text); text-decoration:none; box-shadow: var(--shadow); transition: transform 0.15s ease, box-shadow 0.15s ease; }
-.tag:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
-/* Specific social button styles */
-.linkedin-btn { background: linear-gradient(135deg, rgba(163,231,211,0.95), rgba(207,192,243,0.95)); color: var(--dark-text); border: 1px solid rgba(0,0,0,0.04); }
-.github-btn { background: var(--dark-text); color: #ffffff; border: none; }
-
-@media (max-width: 480px) {
-    .tag { padding: 0.35rem 0.65rem; font-size: 0.95rem; }
-    .contact-links { gap: 0.5rem; }
-}
+.contact-links { display:flex; gap:0.5rem; margin-top:0.5rem; }
+.tag { background: var(--mint-bg); padding:0.25rem 0.5rem; border-radius: 999px; font-weight:600; color:var(--dark-text); text-decoration:none; }
 .quick-tags { display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; }
-.pill { background: var(--peach); padding:0.25rem 0.6rem; border-radius:999px; font-weight:600; color:var(--dark-text); }
+.pill { background: var(--accent-2); padding:0.25rem 0.6rem; border-radius:999px; font-weight:600; color:var(--text); }
 
 .right-column { display:flex; flex-direction:column; gap:1rem; }
 .about-card {
@@ -428,6 +511,7 @@ body {
     padding: 1.25rem;
     box-shadow: 0 10px 30px rgba(0,0,0,0.06);
     position: relative;
+    background-color: var(--card-bg);
 }
 .sticky-paper { border: 1px solid rgba(0,0,0,0.03); }
 .about-card h2 { margin-bottom:0.5rem; }
@@ -439,7 +523,7 @@ body {
 .edu-head { display:flex; gap:0.75rem; align-items:center; margin-bottom:0.25rem; }
 .edu-school, .exp-desc, .edu-desc { color:var(--light-text); font-size:0.95rem; }
 .labels { margin-top:0.5rem; display:flex; gap:0.5rem; flex-wrap:wrap; }
-.label { background: var(--lavender); padding:0.25rem 0.5rem; border-radius:999px; font-size:0.85rem; color:var(--dark-text); font-weight:600; }
+.label { background: var(--accent); padding:0.25rem 0.5rem; border-radius:999px; font-size:0.85rem; color:var(--text); font-weight:600; }
 
 @media (max-width: 767px) {
     .scrapbook-grid { grid-template-columns: 1fr; }
@@ -481,11 +565,11 @@ body {
 }
 
 .project-card:nth-child(1) {
-    border-left-color: var(--lavender);
+    border-left-color: var(--accent);
 }
 
 .project-card:nth-child(2) {
-    border-left-color: var(--peach);
+    border-left-color: var(--accent-2);
 }
 
 .project-card:nth-child(3) {
@@ -493,7 +577,7 @@ body {
 }
 
 .project-card:nth-child(n+4) {
-    border-left-color: var(--lavender);
+    border-left-color: var(--accent);
 }
 
 .project-card:hover {
@@ -542,7 +626,7 @@ body {
     text-align: center;
     padding: 2rem;
     color: var(--light-text);
-    border-top: 2px solid var(--lavender);
+    border-top: 2px solid var(--accent);
     margin-top: 3rem;
 }
 
@@ -590,14 +674,75 @@ body {
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --mint-bg: #1A3A35;
-        --cream: #2D4A45;
-        --lavender: #4A3F5C;
-        --peach: #5C3F35;
-        --pale-pink: #5C3F4A;
-        --dark-text: #F5F5F5;
-        --light-text: #D0D0D0;
-    }
+/* Admin Form Theme Support */
+#admin-section {
+    background: var(--accent-2) !important;
+    color: var(--dark-text) !important;
+    box-shadow: var(--shadow) !important;
 }
+
+#admin-section label,
+#admin-section h2 {
+    color: var(--dark-text) !important;
+}
+
+#admin-section input,
+#admin-section textarea,
+#admin-section select {
+    background: var(--cream) !important;
+    color: var(--dark-text) !important;
+    border: 1px solid var(--accent) !important;
+}
+
+#admin-section button[type="submit"] {
+    background: var(--mint-bg) !important;
+    color: var(--dark-text) !important;
+}
+
+#admin-section button[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+#toggle-admin {
+    background: var(--mint-bg) !important;
+    color: var(--dark-text) !important;
+    box-shadow: var(--shadow) !important;
+}
+
+#toggle-admin:hover {
+    opacity: 0.85;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--cream);
+    color: var(--dark-text);
+    border: 2px solid var(--accent);
+    padding: 0.6rem 1rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.theme-toggle-btn:focus {
+    outline: 2px solid var(--dark-text);
+    outline-offset: 2px;
+}
+
+.theme-toggle-btn:active {
+    transform: translateY(0);
+}
+
+
