@@ -1,0 +1,261 @@
+<!-- Create a pastel portfolio page inspired by a retro flower shop layout. Include sections for Hero, About, Technical Pursuits, and Creative Pursuits. Each projects section should have cards that will be filled from JavaScript. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeslyn Jacob - Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- (background will be applied only to the hero title area) -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content hero-bg">
+            <h1 class="hero-title">Hello, I'm Jeslyn Jacob</h1>
+            <p class="hero-subtitle">A creative developer exploring the intersection of design and code</p>
+        </div>
+        <!-- Removed hero image for a cleaner centered look -->
+    </section>
+
+
+    <!-- Checkered Divider -->
+    <div class="checkered-divider"></div>
+
+    <!-- About Me Section -->
+    <!-- Scrapbook About Section (ID badge, About card, Education/Experience panels) -->
+    <section class="scrapbook-about">
+        <div class="scrapbook-grid">
+            <aside class="id-badge">
+                <div class="photo">
+                    <img src="images/welcome.png" alt="Jeslyn Jacob">
+                </div>
+                <h3 class="badge-name">Jeslyn Jacob</h3>
+                <div class="badge-role">IT Graduate · Creative Communicator</div>
+
+                <div class="badge-contact">
+                    <a href="mailto:jeslynjacob28@gmail.com" class="contact-link">jeslynjacob28@gmail.com</a>
+                    <div class="contact-small">Singapore</div>
+                    <div class="contact-links">
+                        <a href="https://github.com/jeslynjacob28-glitch" class="tag github-btn" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://www.linkedin.com/in/jeslyn-jacob-38ba02350/" class="tag linkedin-btn" target="_blank" rel="noopener">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="quick-tags">
+                    <span class="pill">Full Stack</span>
+                    <span class="pill">UX</span>
+                    <span class="pill">Illustration</span>
+                </div>
+
+                <!-- Decorative image card below tags -->
+                <div class="about-image-card">
+                    <img src="images/comp.png" alt="Computer illustration" />
+                </div>
+            </aside>
+
+            <div class="right-column">
+                <div class="about-card sticky-paper">
+                    <h2>About Me</h2>
+                    <p>I build playful and accessible web experiences that blend clean engineering with thoughtful design. My learning path mixes hands-on software projects with creative exploration — I enjoy prototyping interactions, designing microcopy, and experimenting with motion.</p>
+                    <p>I’m focused on front-end and full-stack work, and I like making interfaces that feel warm, helpful, and accessible.</p>
+                </div>
+
+                <div class="edu-exp">
+                    <div class="panel edu-panel">
+                        <h3>Education</h3>
+                        <div class="edu-item">
+                            <div class="edu-head"><span class="edu-years">2024–2027</span> <strong>Diploma in Information Technology</strong></div>
+                            <div class="edu-school">Nanyang Polytechnic — Singapore • Expected date of graduation: 2027</div>
+                            <p class="edu-desc">Pursuing a 3-year diploma with hands-on software development, web technologies, and project-based learning.</p>
+                            <div class="labels">
+                                <span class="label">Software Engineering</span>
+                                <span class="label">Databases</span>
+                                <span class="label">Full Stack</span>
+                            </div>
+                        </div>
+
+                        <div class="edu-item">
+                            <div class="edu-head"><span class="edu-years">2020–2023</span> <strong>GCE O-Level Certification</strong></div>
+                            <div class="edu-school">Assumption English School — Singapore • Graduated: 2021</div>
+                            <p class="edu-desc">Sat for Singapore-Cambridge GCE O-Level Examinations. Active in Debate Team; school leadership and creative writing.</p>
+                        </div>
+                    </div>
+
+                    <div class="panel exp-panel">
+                        <h3>Experience</h3>
+                        <div class="exp-item">
+                            <strong>Web Development</strong>
+                            <div class="labels">
+                                <span class="label">HTML</span>
+                                <span class="label">CSS</span>
+                                <span class="label">JavaScript</span>
+                            </div>
+                            <p class="exp-desc">Worked on small client projects, improving UI accessibility and building responsive components.</p>
+                        </div>
+                        <div class="exp-item">
+                            <strong>Designer</strong>
+                            <div class="labels">
+                                <span class="label">Figma</span>
+                                <span class="label">Illustrator</span>
+                            </div>
+                            <p class="exp-desc">Branding and illustration work for local businesses and student groups.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkered Divider -->
+    <div class="checkered-divider"></div>
+
+    <!-- Technical Pursuits Section -->
+
+    <section class="pursuits-section">
+        <h2>Technical Pursuits</h2>
+        <div class="custom-projects-grid">
+            <div class="custom-project-card">
+                <div class="project-img-col">
+                    <img src="keys.png" alt="Interactive Music Website screenshot" class="project-img" />
+                </div>
+                <div class="project-info-col">
+                    <h3 class="project-title">Interactive Music Website</h3>
+                    <div class="project-role">Role: Solo Developer</div>
+                    <div class="project-stack">Tech Stack: <span class="tech-tag">HTML</span> <span class="tech-tag">CSS</span> <span class="tech-tag">JavaScript</span></div>
+                    <p class="project-description">A personal project where I designed a music-themed website that lets users interact with a digital piano and drum pad. Sound triggers were built using JavaScript, allowing for responsive, real-time user input.</p>
+                </div>
+            </div>
+            <div class="custom-project-card">
+                <div class="project-img-col">
+                    <img src="images/site.png" alt="Site Sort screenshot" class="project-img" />
+                </div>
+                <div class="project-info-col">
+                    <h3 class="project-title">Site Sort</h3>
+                    <div class="project-role">Role: Front-End Developer</div>
+                    <div class="project-stack">Skills Used: <span class="tech-tag">HTML</span> <span class="tech-tag">CSS</span> <span class="tech-tag">JavaScript</span> <span class="tech-tag">Python</span></div>
+                    <p class="project-description">I developed the user interface for SiteSort, a project management web application aimed at supporting construction site supervisors in tracking tasks, managing teams, and improving overall workflow efficiency. I was responsible for translating UI designs into clean, responsive web pages and integrating them with backend data to ensure seamless user interaction.</p>
+                </div>
+            </div>
+            <div class="custom-project-card">
+                <div class="project-img-col">
+                    <img src="images/oasis.png" alt="Velvet Oasis screenshot" class="project-img" />
+                </div>
+                <div class="project-info-col">
+                    <h3 class="project-title">Velvet Oasis</h3>
+                    <div class="project-role">Role: UX Designer</div>
+                    <div class="project-stack">Skills Used: <span class="tech-tag">Figma</span> <span class="tech-tag">User Research</span> <span class="tech-tag">Wireframing</span> <span class="tech-tag">Prototyping</span></div>
+                    <p class="project-description">Velvet Oasis is a hotel booking website concept designed to streamline the booking process while maintaining a luxurious and calming user experience. I led the user experience design, conducting competitor analysis, creating user personas, and building wireframes and high-fidelity prototypes using Figma. The design prioritized intuitive navigation, clean aesthetics, and seamless filtering for room types, dates, and services.</p>
+                </div>
+            </div>
+        </div>
+        <div id="technical-grid" class="projects-grid">
+            <!-- Project cards will be inserted here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Checkered Divider -->
+    <div class="checkered-divider"></div>
+
+    <!-- Creative Pursuits Section -->
+    <section class="pursuits-section">
+        <h2>Creative Pursuits</h2>
+        <div class="custom-projects-grid">
+            <div class="custom-project-card">
+                <div class="project-img-col">
+                    <img src="images/pres.jpg" alt="President of SoundCard" class="project-img" />
+                </div>
+                <div class="project-info-col">
+                    <h3 class="project-title">President – SoundCard CCA</h3>
+                    <div class="project-role">President</div>
+                    <p class="project-description">Led team restructuring and organized a full-scale school music event, developing leadership, communication, and documentation skills.</p>
+                </div>
+            </div>
+            <div class="custom-project-card">
+                <div class="project-img-col">
+                    <img src="images/sm.jpg" alt="Stage Manager NYP Open House" class="project-img" />
+                </div>
+                <div class="project-info-col">
+                    <h3 class="project-title">Stage Manager – NYP Open House</h3>
+                    <div class="project-role">Assistant Stage Manager</div>
+                    <p class="project-description">Coordinated backstage logistics for live shows, building real-time problem-solving and teamwork under pressure.</p>
+                </div>
+            </div>
+            <div class="custom-project-card">
+                <div class="project-img-col">
+                    <img src="images/singer.jpg" alt="Singer School Performances" class="project-img" />
+                </div>
+                <div class="project-info-col">
+                    <h3 class="project-title">Singer – School Performances</h3>
+                    <div class="project-role">Performer</div>
+                    <p class="project-description">Performed live with technical setups, improving collaboration, timing, and confidence in high-pressure environments.</p>
+                </div>
+            </div>
+        </div>
+        <div id="creative-grid" class="projects-grid">
+            <!-- Project cards will be inserted here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Jeslyn Jacob. All rights reserved.</p>
+    </footer>
+
+    
+
+    <script src="js/script.js"></script>
+    <!-- Admin Form for Adding Pursuits (hidden by default, now at page bottom) -->
+    <section id="admin-section" style="display:none; margin: 2rem auto; max-width: 600px; background: #fffbe7; border-radius: 1rem; box-shadow: 0 2px 8px #e8f5f0; padding: 2rem;">
+        <h2 style="margin-top:0;">Add a New Pursuit</h2>
+        <form id="admin-form">
+            <label for="pursuit-title">Title</label><br>
+            <input type="text" id="pursuit-title" name="title" required style="width:100%;margin-bottom:1em;"><br>
+            <label for="pursuit-role">Role</label><br>
+            <input type="text" id="pursuit-role" name="role" required style="width:100%;margin-bottom:1em;"><br>
+            <label for="pursuit-stack">Stack/Medium</label><br>
+            <input type="text" id="pursuit-stack" name="stack" style="width:100%;margin-bottom:1em;"><br>
+            <label for="pursuit-description">Description</label><br>
+            <textarea id="pursuit-description" name="description" required style="width:100%;margin-bottom:1em;"></textarea><br>
+            <label for="pursuit-category">Category</label><br>
+            <select id="pursuit-category" name="category" required style="width:100%;margin-bottom:1em;">
+                <option value="technical">Technical</option>
+                <option value="creative">Creative</option>
+            </select><br>
+            <button type="submit" style="background:#b6e3c6;color:#222;border:none;padding:0.5em 1.5em;border-radius:0.5em;">Generate JSON</button>
+        </form>
+        <div id="json-output" style="margin-top:1.5em;">
+            <label for="pursuit-json">Copy this JSON into <code>data/projects.json</code>:</label>
+            <textarea id="pursuit-json" style="width:100%;height:6em;" readonly></textarea>
+        </div>
+    </section>
+    <div style="text-align:center;margin:2rem 0;">
+        <button id="toggle-admin" style="background:#e8f5f0;color:#222;border:none;padding:0.75em 1.5em;border-radius:2em;box-shadow:0 2px 8px #b6e3c6;">Admin: Add Pursuit</button>
+    </div>
+    <script>
+    // Toggle admin form visibility
+    document.getElementById('toggle-admin').onclick = function() {
+        var adminSection = document.getElementById('admin-section');
+        adminSection.style.display = (adminSection.style.display === 'none') ? 'block' : 'none';
+    };
+
+    // Admin form logic
+    document.getElementById('admin-form').onsubmit = function(e) {
+        e.preventDefault();
+        var title = document.getElementById('pursuit-title').value.trim();
+        var role = document.getElementById('pursuit-role').value.trim();
+        var stack = document.getElementById('pursuit-stack').value.trim();
+        var description = document.getElementById('pursuit-description').value.trim();
+        var category = document.getElementById('pursuit-category').value;
+        var json = {
+            title: title,
+            role: role,
+            stack: stack,
+            description: description,
+            category: category
+        };
+        document.getElementById('pursuit-json').value = JSON.stringify(json, null, 2);
+    };
+    </script>
+</body>
+</html>
