@@ -5,13 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeslyn Jacob - Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=2">
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark mode">
+        <span id="theme-toggle-text">🌙 Dark</span>
+    </button>
+
     <!-- (background will be applied only to the hero title area) -->
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content hero-bg">
+            <!-- Decorative Goldfish positioned between bg.png and text -->
+            <img src="images/goldfish.png" alt="Decorative goldfish" style="position: absolute; top: -40px; right: -40px; width: 80px; height: auto; z-index: 3;">
+            <!-- Flipped goldfish on bottom-left -->
+            <img src="images/goldfish.png" alt="Decorative goldfish" style="position: absolute; bottom: -40px; left: -40px; width: 80px; height: auto; z-index: 3; transform: scaleX(-1);">
             <h1 class="hero-title">Hello, I'm Jeslyn Jacob</h1>
             <p class="hero-subtitle">A creative developer exploring the intersection of design and code</p>
         </div>
@@ -28,7 +37,7 @@
         <div class="scrapbook-grid">
             <aside class="id-badge">
                 <div class="photo">
-                    <img src="../images/welcome.png" alt="Jeslyn Jacob">
+                    <img src="images/welcome.png" alt="Jeslyn Jacob">
                 </div>
                 <h3 class="badge-name">Jeslyn Jacob</h3>
                 <div class="badge-role">IT Graduate · Creative Communicator</div>
@@ -55,14 +64,17 @@
             </aside>
 
             <div class="right-column">
-                <div class="about-card sticky-paper">
+                <div class="about-card sticky-paper" style="position: relative;">
+                    <!-- Decorative Paperclip positioned similar to goldfish -->
+                    <img src="images/paperclip.png" alt="Decorative paperclip" style="position: absolute; top: -20px; right: -20px; width: 60px; height: auto; z-index: 3;">
                     <h2>About Me</h2>
                     <p>I build playful and accessible web experiences that blend clean engineering with thoughtful design. My learning path mixes hands-on software projects with creative exploration — I enjoy prototyping interactions, designing microcopy, and experimenting with motion.</p>
-                    <p>I’m focused on front-end and full-stack work, and I like making interfaces that feel warm, helpful, and a little bit whimsical.</p>
+                    <p>I'm focused on front-end and full-stack work, and I like making interfaces that feel warm, helpful, and a little bit whimsical.</p>
                 </div>
 
                 <div class="edu-exp">
-                    <div class="panel edu-panel">
+                    <div class="panel edu-panel" style="position: relative;">
+                        <img src="images/paperclip.png" alt="Decorative paperclip" style="position: absolute; top: -20px; left: -20px; width: 60px; height: auto; z-index: 3; transform: scaleX(-1);">
                         <h3>Education</h3>
                         <div class="edu-item">
                             <div class="edu-head"><span class="edu-years">2024–2027</span> <strong>Diploma in Information Technology</strong></div>
@@ -82,7 +94,8 @@
                         </div>
                     </div>
 
-                    <div class="panel exp-panel">
+                    <div class="panel exp-panel" style="position: relative;">
+                        <img src="images/paperclip.png" alt="Decorative paperclip" style="position: absolute; top: -20px; left: -20px; width: 60px; height: auto; z-index: 3; transform: scaleX(-1);">
                         <h3>Experience</h3>
                         <div class="exp-item">
                             <strong>Intern — Web Development</strong>
@@ -111,6 +124,11 @@
     <div class="checkered-divider"></div>
 
     <!-- Technical Pursuits Section -->
+
+    <!-- Decorative Goldfish -->
+    <div style="text-align: center; margin: 1rem auto 0.5rem; max-width: 150px;">
+        <img src="images/goldfish.png" alt="Decorative goldfish" style="width: 100%; height: auto;">
+    </div>
 
     <section class="pursuits-section">
         <h2>Technical Pursuits</h2>
@@ -158,6 +176,12 @@
     <div class="checkered-divider"></div>
 
     <!-- Creative Pursuits Section -->
+
+    <!-- Decorative Goldfish -->
+    <div style="text-align: center; margin: 1rem auto 0.5rem; max-width: 150px;">
+        <img src="images/goldfish.png" alt="Decorative goldfish" style="width: 100%; height: auto;">
+    </div>
+
     <section class="pursuits-section">
         <h2>Creative Pursuits</h2>
         <div class="custom-projects-grid">

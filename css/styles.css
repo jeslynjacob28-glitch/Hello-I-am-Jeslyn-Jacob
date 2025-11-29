@@ -40,9 +40,14 @@
     height: 120px;
     object-fit: contain;
     border-radius: 0.75rem;
-    background: var(--mint-bg);
+    background: var(--accent);
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    border: 3px solid var(--lavender);
+    border: 3px solid var(--accent);
+}
+
+body.dark-theme .project-img {
+    border: 3px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
 }
 .project-info-col {
     flex: 1 1 0%;
@@ -122,8 +127,8 @@
     /* Light Theme (default) */
     --mint-bg: #E8F5F0;
     --cream: #FFFBF7;
-    --lavender: #E8D5F2;
-    --peach: #FFE5D9;
+    --lavender: #D4BEF0; /* pastel purple */
+    --peach: #FFE5A0; /* butter yellow */
     --pale-pink: #F5D9E8;
     --dark-text: #2D3E3E;
     --light-text: #5A6E6E;
@@ -133,29 +138,29 @@
 
 /* Dark Theme */
 body.dark-theme {
-    /* Purple-themed dark palette */
-    --mint-bg: #120826; /* legacy token mapped to purple background */
-    --cream: #241330; /* legacy token mapped to card background */
-    --lavender: #BFA6E6; /* light lavender accent */
-    --peach: #FFD7C9; /* keep peach accent for harmony */
-    --pale-pink: #E7D7EB;
-    --dark-text: #F6F3FA; /* off-white / very light lavender */
-    --light-text: #E6DFEA; /* muted light text */
+    /* Blue-themed dark palette */
+    --mint-bg: #0A1929; /* legacy token mapped to deep navy background */
+    --cream: #132F4C; /* legacy token mapped to card background */
+    --lavender: #90CAF9; /* light blue accent */
+    --peach: #81C784; /* teal/green accent for harmony */
+    --pale-pink: #B3E5FC;
+    --dark-text: #F0F7FF; /* off-white with cool blue tint */
+    --light-text: #D6E4F0; /* muted light text */
     --shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
     --shadow-hover: 0 10px 28px rgba(0, 0, 0, 0.6);
     /* Shared semantic variables for dark theme */
-    --bg: #120826; /* deep muted purple */
-    --card-bg: #241330; /* slightly lighter panel color */
-    --text: #F6F3FA;
-    --muted-text: #E6DFEA;
-    --accent: #BFA6E6; /* soft lavender */
-    --accent-2: #FFD7C9; /* peach accent */
-    --accent-3: #E7D7EB;
-    /* Hero-specific dark mode variables (purple-tinted overlay) */
+    --bg: #0A1929; /* deep navy blue */
+    --card-bg: #132F4C; /* slightly lighter panel color */
+    --text: #F0F7FF;
+    --muted-text: #D6E4F0;
+    --accent: #90CAF9; /* light sky blue */
+    --accent-2: #81C784; /* teal accent */
+    --accent-3: #B3E5FC;
+    /* Hero-specific dark mode variables (blue-tinted overlay) */
     --hero-bg-opacity: 0.88;
-    --hero-overlay: rgba(36, 19, 46, 0.56); /* purple-tinted subtle overlay */
-    --hero-text: #FFF8FF; /* crisp near-white with cool tint */
-    --hero-text-light: #F2EAF8; /* slightly muted subtitle */
+    --hero-overlay: rgba(10, 25, 41, 0.56); /* blue-tinted subtle overlay */
+    --hero-text: #FFFFFF; /* crisp white */
+    --hero-text-light: #E3F2FD; /* slightly muted subtitle with blue tint */
 }
 
 /* Smooth theme transition */
@@ -202,7 +207,7 @@ body {
     position: absolute;
     inset: -8px;
     border-radius: 1rem;
-    background: rgba(255,255,255,0.85); /* overlay to increase legibility */
+    background: rgba(255,255,255,0.60); /* overlay to increase legibility - reduced for more image visibility */
     z-index: 1;
     pointer-events: none;
 }
@@ -254,7 +259,7 @@ body.dark-theme .edu-desc {
 .hero-bg { border: 6px solid rgba(232,213,242,0.85); }
 
 body.dark-theme .hero-bg {
-    border: 6px solid rgba(52, 39, 63, 0.7);
+    border: 6px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Hero Section */
@@ -265,9 +270,9 @@ body.dark-theme .hero-bg {
     padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: var(--cream);
+    background-color: var(--card-bg);
     border-radius: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     box-shadow: var(--shadow);
     text-align: center;
     min-height: 320px;
@@ -354,16 +359,18 @@ body.dark-theme .hero-subtitle {
     height: 2rem;
     background-image:
         linear-gradient(45deg, var(--accent) 25%, transparent 25%),
-            linear-gradient(-45deg, var(--accent) 25%, transparent 25%),
-            linear-gradient(45deg, transparent 75%, var(--accent) 75%),
-            linear-gradient(-45deg, transparent 75%, var(--accent) 75%);
-        background-size: 2rem 2rem;
-        background-position: 0 0, 0 1rem, 1rem -1rem, -1rem 0;
-        background-color: var(--accent-2);
-    margin: 2rem 0;
+        linear-gradient(-45deg, var(--accent) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--accent) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--accent) 75%);
+    background-size: 2rem 2rem;
+    background-position: 0 0, 0 1rem, 1rem -1rem, -1rem 0;
+    background-color: var(--accent-2);
+    margin: 1rem 0;
 }
 
-/* About Section */
+body.dark-theme .checkered-divider {
+    display: none;
+}/* About Section */
 .about {
     max-width: 1200px;
     margin: 0 auto;
@@ -456,7 +463,7 @@ body.dark-theme .hero-subtitle {
 /* Scrapbook About layout */
 .scrapbook-about {
     max-width: 1200px;
-    margin: 2rem auto;
+    margin: 1rem auto;
     padding: 2rem;
 }
 .scrapbook-grid {
@@ -502,7 +509,11 @@ body.dark-theme .hero-subtitle {
 .contact-links { display:flex; gap:0.5rem; margin-top:0.5rem; }
 .tag { background: var(--mint-bg); padding:0.25rem 0.5rem; border-radius: 999px; font-weight:600; color:var(--dark-text); text-decoration:none; }
 .quick-tags { display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; }
-.pill { background: var(--accent-2); padding:0.25rem 0.6rem; border-radius:999px; font-weight:600; color:var(--text); }
+.pill { background: var(--accent-2); padding:0.25rem 0.6rem; border-radius:999px; font-weight:600; color: #2D3E3E; }
+
+body.dark-theme .pill {
+    color: var(--text);
+}
 
 .right-column { display:flex; flex-direction:column; gap:1rem; }
 .about-card {
@@ -523,7 +534,11 @@ body.dark-theme .hero-subtitle {
 .edu-head { display:flex; gap:0.75rem; align-items:center; margin-bottom:0.25rem; }
 .edu-school, .exp-desc, .edu-desc { color:var(--light-text); font-size:0.95rem; }
 .labels { margin-top:0.5rem; display:flex; gap:0.5rem; flex-wrap:wrap; }
-.label { background: var(--accent); padding:0.25rem 0.5rem; border-radius:999px; font-size:0.85rem; color:var(--text); font-weight:600; }
+.label { background: var(--accent); padding:0.25rem 0.5rem; border-radius:999px; font-size:0.85rem; color: #2D3E3E; font-weight:600; }
+
+body.dark-theme .label {
+    color: var(--text);
+}
 
 @media (max-width: 767px) {
     .scrapbook-grid { grid-template-columns: 1fr; }
@@ -537,7 +552,7 @@ body.dark-theme .hero-subtitle {
 .pursuits-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 2rem 2rem;
 }
 
 .pursuits-section h2 {
@@ -729,6 +744,10 @@ body.dark-theme .hero-subtitle {
     box-shadow: var(--shadow);
     z-index: 999;
     transition: all 0.3s ease;
+}
+
+body.dark-theme .theme-toggle-btn {
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .theme-toggle-btn:hover {
